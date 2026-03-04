@@ -206,10 +206,11 @@ div[data-baseweb="select"] > div:focus-within {
 
 # ---------------- DATABASE ----------------
 conn = mysql.connector.connect(
-    host="localhost",
-    user="root",
-    password="",
-    database="shopping_cart_db"
+    host=st.secrets["DB_HOST"],
+    user=st.secrets["DB_USER"],
+    password=st.secrets["DB_PASSWORD"],
+    database=st.secrets["DB_NAME"],
+    port=int(st.secrets["DB_PORT"])
 )
 cursor = conn.cursor()
 
@@ -1510,3 +1511,4 @@ else:
                     st.divider()
 
                     st.divider()
+
